@@ -17,10 +17,10 @@ class Recipe(models.Model):
     ingredient = models.TextField()
     method = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
-    is_public = models.BooleanField(default=False)
+    # is_public = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='recipe_likes', blank=True)
     excerpt = models.TextField(blank=True)
+    likes = models.ManyToManyField(User, related_name='recipe_likes', blank=True)
 
     class Meta:
         ordering = ['-created_on']
